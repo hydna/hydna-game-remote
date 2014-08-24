@@ -36,6 +36,9 @@
                     channel.send($(this).attr("id"));
                 }
             });
+            $(document).on("click", ".controller a", function(e){
+                e.preventDefault();    
+            });
         });
     
     </script> 

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Remote control</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width" />
+    
+    <link rel="stylesheet" href="style/master.css" type="text/css" media="screen" />
+    
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="style/ie7.css" type="text/css" media="screen" />
+    <![endif]-->
+    
+    <!--[if lt IE 9]>
+    <script src="script/libs/html5shiv.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.hydna.com/1/hydna.js"></script>
+    <script src="script/libs/consolelog.min.js"></script>
+    <script>
+
+        $(function(){
+
+
+            var channel = new HydnaChannel('hydna-demo-remote.hydna.net', 'rw');
+
+            channel.onopen = function(){
+                console.log("ready to send");
+            }
+            
+            $(document).on("touchstart mousedown", ".controller a", function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                console.log($(this).attr("id"));    
+                if(channel.readyState === HydnaChannel.OPEN){
+                    channel.send($(this).attr("id"));
+                }
+            });
+
+
+        });
+    
+    </script> 
+</head>
+<body>
+    <div class="wrapper">
+    <div class="controller">
+    <a href="#" id="start">start</a>
+    <a href="#" id="select">select</a>
+    <a href="#" id="a">a</a>
+    <a href="#" id="b">b</a>
+    <a href="#" id="x">x</a>
+    <a href="#" id="y">y</a>
+    <a href="#" id="left">left</a>
+    <a href="#" id="right">right</a>
+    <a href="#" id="up">up</a>
+    <a href="#" id="down">down</a>
+    </div>
+    <div class="message">Please turn your phone to landscape mode</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "remotekeyboard",
+    "description": "Triggers applescript, that triggers keyboardevents",
+    "version": "0.0.1",
+    "private": false,
+    "dependencies": {
+        "hydna": "*",
+        "applescript": "*"
+    }
+}

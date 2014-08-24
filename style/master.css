@@ -33,6 +33,19 @@ a:hover{
     height: 100%;
 }
 
+.logo{
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+    display: block;
+    background: url(../images/logo.png) no-repeat top left;
+    padding: 0 0 0 100px;
+    text-indent: -99999px;
+    width: 110px;
+    height: 30px;
+    z-index: 2;
+}
+
 .message{
     position: absolute;
     left: 50%;
@@ -66,8 +79,6 @@ a:hover{
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
 }
 
-/* Controller
-================================================== */   
 .controller{
     position: absolute;
     top: 0;
@@ -84,7 +95,6 @@ a:hover{
     -o-transform: translate(-50%, 0);
     -ms-transform: translate(-50%), 0;
 
-
     transition:all 1s ease;
     -webkit-transition:all 1s ease;
     -moz-transition:all 1s ease;
@@ -94,7 +104,7 @@ a:hover{
 .controller a{
     position: absolute;
     background: red;
-    opacity: .5;
+    opacity: 0;
     width: 40px;
     height: 40px;
     overflow:hidden;

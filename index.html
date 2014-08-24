@@ -11,13 +11,6 @@
     
     <link rel="stylesheet" href="style/master.css" type="text/css" media="screen" />
     
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="style/ie7.css" type="text/css" media="screen" />
-    <![endif]-->
-    
-    <!--[if lt IE 9]>
-    <script src="script/libs/html5shiv.js"></script>
-    <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdn.hydna.com/1/hydna.js"></script>
     <script src="script/libs/consolelog.min.js"></script>
@@ -25,11 +18,14 @@
 
         $(function(){
 
-
             var channel = new HydnaChannel('hydna-demo-remote.hydna.net', 'rw');
 
-            channel.onopen = function(){
+            channel.onopen = function(event){
                 console.log("ready to send");
+            }
+
+            channel.onerror = function(event){
+                console.log(event);
             }
             
             $(document).on("touchstart mousedown", ".controller a", function(e){
@@ -40,25 +36,27 @@
                     channel.send($(this).attr("id"));
                 }
             });
-
-
         });
     
     </script> 
 </head>
 <body>
-    <div class="wrapper">
+
+<a href="https://www.hydna.com" class="logo">Powered by hydna</a>
+<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;z-index: 3;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+<div class="wrapper">
+
     <div class="controller">
-    <a href="#" id="start">start</a>
-    <a href="#" id="select">select</a>
-    <a href="#" id="a">a</a>
-    <a href="#" id="b">b</a>
-    <a href="#" id="x">x</a>
-    <a href="#" id="y">y</a>
-    <a href="#" id="left">left</a>
-    <a href="#" id="right">right</a>
-    <a href="#" id="up">up</a>
-    <a href="#" id="down">down</a>
+        <a href="#" id="start">start</a>
+        <a href="#" id="select">select</a>
+        <a href="#" id="a">a</a>
+        <a href="#" id="b">b</a>
+        <a href="#" id="x">x</a>
+        <a href="#" id="y">y</a>
+        <a href="#" id="left">left</a>
+        <a href="#" id="right">right</a>
+        <a href="#" id="up">up</a>
+        <a href="#" id="down">down</a>
     </div>
     <div class="message">Please turn your phone to landscape mode</div>
 </div>

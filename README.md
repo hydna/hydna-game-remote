@@ -1,4 +1,4 @@
-## Hydna remote control for OpenEmu ##
+# Hydna remote control for OpenEmu #
 ![Controller](/client/images/controller.png)
 This application (a node app and html client) let's one or more people control a game in [OpenEmu](http://openemu.org) remotly.
 
@@ -10,21 +10,21 @@ This application (a node app and html client) let's one or more people control a
 
 **This demo has support for playing nes and snes games.**
 
-### Requirements ###
+## Requirements ##
 
 * Your own [free hydna domain](http://www.hydna.com).
 * [OpenEmu](http://openemu.org) installed (macosx only) and [node.js](http://nodejs.org) installed on the same system.
 * Check the keymappings in **main.js** so they match you keyboard controller settings in OpenEmu.
 
-### Setup ###
+## Setup ##
 
 In **main.js** replace **HYDNA_DOMAIN** with your own hydna domain. In **client/index.html** do the same. Choose **nes** or **snes** controller scheme by adding nes or snes as a class on the body element in **client/index.html**.
 
-### Installing ###
+## Installing ##
 
     npm install
 
-### Running ###
+## Running ##
 
     node main.js
 

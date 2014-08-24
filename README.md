@@ -1,12 +1,12 @@
 ### Hydna remote control for openemu ###
 
-This application (a node app and html client) let's several people control a game in openemu remotly.
+This application (a node app and html client) let's one or more people control a game in openemu remotly.
 
-The node app is started on the system with the choosen openemu game running, the app then connects to a hydna domain and waits for commands.
+* The node app is started on the system with the choosen openemu game running, the app then connects to a hydna domain and waits for commands.
 
-The html client enables other users to send game control commands to the node app through a hydna domain.
+* The html client enables other users to send game control commands to the node app through a hydna domain.
 
-When the node app receives commands a applescript is called that presses the appropriate key.
+* When the node app receives commands an applescript is called that presses the appropriate key.
 
 **This demo has support for playing nes and snes games.**
 
@@ -18,7 +18,7 @@ When the node app receives commands a applescript is called that presses the app
 
 ### Setup ###
 
-In main.js replace HYDNA_DOMAIN with your own hydna domain. In client/index.html do the same.
+In **main.js** replace **HYDNA_DOMAIN** with your own hydna domain. In **client/index.html** do the same.
 
 ### Installing ###
 
@@ -29,7 +29,7 @@ In main.js replace HYDNA_DOMAIN with your own hydna domain. In client/index.html
     node main.js
 
 * Start the OpenEmu game you would like to play
-* Then open the **client/index.html** file in your browser, (work great on mobile)
+* Then open the **client/index.html** file in your browser, (works great on mobile)
 
 
 

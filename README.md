@@ -14,7 +14,7 @@ This application (a node app and html client) let's one or more people control a
 
 * Your own free hydna domain
 * OpenEmu installed (macosx only) and node.js installed on the same system
-* Check the keymappings in main.js and index.html
+* Check the keymappings in **main.js** so they match you keyboard controller settings in openemu
 
 ### Setup ###
 

@@ -18,27 +18,58 @@
 
         $(function(){
 
+            var status = $("#status_id");
+            var fadeOutTimer;
+
             var channel = new HydnaChannel('hydna-demo-remote.hydna.net', 'rw');
+
+
+            function flashStatus(msg){
+                clearTimeout(fadeOutTimer);
+
+                status.html(msg);
+                status.css("opacity", 1.0);
+                
+                fadeOutTimer = setTimeout(function(){
+                    status.css("opacity", 0.0);
+                }, 1000);
+            }
 
             channel.onopen = function(event){
                 console.log("ready to send");
+                flashStatus("Ready to play");
             }
 
             channel.onerror = function(event){
                 console.log(event);
+                flashStatus("Connection problem...");
             }
             
             $(document).on("touchstart mousedown", ".controller a", function(e){
                 e.stopPropagation();
                 e.preventDefault();
-                console.log($(this).attr("id"));    
+                var command = $(this).attr("id");
+                if($(this).hasClass("repeat")){
+                    console.log("repeat command until released");
+                }
+                console.log(command);
                 if(channel.readyState === HydnaChannel.OPEN){
-                    channel.send($(this).attr("id"));
+                    channel.send(command);
+                    flashStatus(command.toUpperCase());
                 }
             });
+            
+            $(document).on("touchend mouseup", ".controller a", function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                var command = $(this).attr("id");
+            });
+
             $(document).on("click", ".controller a", function(e){
                 e.preventDefault();    
             });
+            
+            flashStatus("Connecting...");
         });
     
     </script> 
@@ -56,10 +87,11 @@
         <a href="#" id="b">b</a>
         <a href="#" id="x">x</a>
         <a href="#" id="y">y</a>
-        <a href="#" id="left">left</a>
-        <a href="#" id="right">right</a>
-        <a href="#" id="up">up</a>
-        <a href="#" id="down">down</a>
+        <a href="#" id="left" class="repeat">left</a>
+        <a href="#" id="right" class="repeat">right</a>
+        <a href="#" id="up" class="repeat">up</a>
+        <a href="#" id="down" class="repeat">down</a>
+        <div class="status" id="status_id">Connecting...</div>
     </div>
     <div class="message">Please turn your phone to landscape mode</div>
 </div>

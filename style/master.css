@@ -101,10 +101,17 @@ a:hover{
     -o-transition:all 1s ease;
 }
 
+.nes .controller{
+    background-image: url(../images/controller_nes.png);
+}
+.snes .controller{
+    background-image: url(../images/controller_snes.png);
+}
+
 .controller a{
     position: absolute;
     background: red;
-    opacity: 0;
+    opacity: 0.0;
     width: 40px;
     height: 40px;
     overflow:hidden;
@@ -177,6 +184,67 @@ a:hover{
     -ms-transform: rotate(50deg); /* IE 9 */
     -webkit-transform: rotate(50deg); /* Chrome, Safari, Opera */
     transform: rotate(50deg);
+}
+
+.nes #a{
+    left: 360px;
+    top: 167px;
+}
+
+.nes #y{
+    display:none;
+}
+.nes #x{
+    display:none;
+}
+.nes #b{
+    left: 305px;
+    top: 167px;
+}
+
+.nes #left{
+    width: 40px;
+    height: 30px;
+    top: 151px;
+    left: 45px;
+}
+.nes #right{
+    width: 40px;
+    height: 30px;
+    top: 151px;
+    left: 115px;
+}
+.nes #up{
+    width: 30px;
+    height: 40px;
+    top: 110px;
+    left: 84px;
+}
+.nes #down{
+    width: 30px;
+    height: 40px;
+    top: 180px;
+    left: 84px;
+}
+
+.nes #start{
+    left: 226px;
+    top: 178px;
+    width: 40px;
+    height: 20px;
+    -ms-transform: rotate(0); /* IE 9 */
+    -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+    transform: rotate(0);
+}
+
+.nes #select{
+    left: 176px;
+    top: 178px;
+    width: 40px;
+    height: 20px;
+    -ms-transform: rotate(0); /* IE 9 */
+    -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+    transform: rotate(0);
 }
 
 /* Grid

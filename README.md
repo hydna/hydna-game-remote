@@ -1,4 +1,4 @@
-### Hydna remote control for OpenEmu ###
+## Hydna remote control for OpenEmu ##
 ![Controller](/client/images/controller.png)
 This application (a node app and html client) let's one or more people control a game in [OpenEmu](http://openemu.org) remotly.
 
